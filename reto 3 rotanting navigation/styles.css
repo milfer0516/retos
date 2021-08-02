@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #333;
+    color: #222;
+    overflow-x: hidden;
+    margin: 0;
+}
+img {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.container {
+    background-color: #fafafa;
+    transform-origin: top left;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 50px;
+    transform-origin: top left;
+    transition: transform 0.5s linear;
+}
+/* para que roto cuando se active la class show-nav */
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+
+/* pocition of circle */
+.circle-container {
+    position: fixed;
+    top: -100px;
+    left: -100px;
+}
+
+.circle {
+    background-color: #ff7979;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+.circle button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    background: transparent;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+}
+
+.content {
+    width: 100%;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+/* ubicar los botones de x y hamburguesa y giran los iconos */
+.circle button#close {
+    top: 60%;
+    transform: rotate(90deg);
+    transform-origin: top left;
+}
+/* para que el circulo rote y salga la x  */
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+/* menu de navegacion  */
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+nav ul li {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 40px 0;
+    transform: translateX(
+        -100%
+    ); /* se le da un valor negativo para que este afuera en eñmomento de desplegar el menu */
+    transition: transform 0, 4s ease; /* l tiempo en aparecer */
+}
+nav ul li i {
+    font-size: 16px;
+    margin-right: 10px;
+}
+nav ul li + li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+nav ul li + li + li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+/* hasta aqui no aparecera el menu por los margenes dados anteriormente de transform */
+
+.container.show-nav + nav li {
+    transform: translateX(0);
+    transition-delay: 0, 4s;
+}
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.content small {
+    font-style: italic;
+    color: #222;
+}
+.content h1 {
+    margin-bottom: 0;
+}
+.content p {
+    font-size: 16px;
+    color: #333;
+}

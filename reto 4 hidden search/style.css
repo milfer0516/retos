@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+.search {
+    position: relative;
+    height: 50px;
+}
+.search .input {
+    position: relative;
+    left: 54px;
+    bottom: 4px;
+    padding-left: 10px;
+    font-size: 16px;
+    border: 0;
+    width: 0px;
+    height: 50px;
+    transition: width 0.3s ease;
+}
+.btn {
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+i {
+    font-size: 24px;
+}
+
+/* a los elemetos se le agrega la seudaclase se separan con un coma para no pepetir */
+.btn:focus,
+.input:focus {
+    outline: none;
+}
+.search.active .input {
+    width: 200px;
+    border: none;
+    transition: 0.6s ease;
+}
+.search.active .btn {
+    /* transform: translateX(-100px); */
+    transition: 0.6s ease;
+}
